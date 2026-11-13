@@ -5,12 +5,15 @@ Base de datos: taller3_db | Colección: raw_data
 El _id de cada documento es el id que entrega la API, así que ejecutar el
 script varias veces NO duplica datos (upsert).
 """
+from dotenv import load_dotenv
 import os
 import requests
 from pymongo import MongoClient, ReplaceOne
 
+load_dotenv()
+
 API_URL = "https://www.freetogame.com/api/games"
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")  # o tu URI de Atlas
+MONGO_URI = os.getenv("MONGODB_URI", "mongodb://localhost:27017")  # o tu URI de Atlas
 DB_NAME = "taller3_db"
 COLLECTION = "raw_data"
 
